@@ -1,0 +1,2 @@
+def checking():
+	print("dwqewq")

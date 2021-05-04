@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <title>Document</title>
+</head>
+<body>
+   <h1>Upload image</h1>
+   <form method="post" enctype="multipart/form-data">
+     <input type="file" id="files" name="files" onchange="loadFile(event)" multiple>
+     <input name="form" type="submit" value="Upload"> 
+     <div id="preview"></div>
+     <script>
+         function previewImages() {
+
+         var $preview = $('#preview').empty();
+         if (this.files) $.each(this.files, readAndPreview);
+
+         function readAndPreview(i, file) {
+            if (!/\.(jpe?g|png|gif)$/i.test(file.name)){
+                  return alert(file.name +" is not an image");
+            } // else...
+            
+            var reader = new FileReader();
+
+            $(reader).on("load", function() {
+                  $preview.append($("<img/>", {src:this.result, height:100}));
+            });
+
+            reader.readAsDataURL(file);
+            
+         }
+         }
+         $('#files').on("change", previewImages);
+     </script>
+   </form>
+</body>
+</html>
