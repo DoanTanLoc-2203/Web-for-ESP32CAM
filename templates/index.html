@@ -10,11 +10,21 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
 	<title>Demo</title>
 </head>
-<body>
+ <body> <!--onLoad=" setTimeout('refreshIt()',100)"--> 
 	<div class="container_all">
-		<div class="header">header</div>
+		<div class="header">
+			<div class="nav flex">
+				<a href="/upload"><button>New face</button></a>
+				<a href="/remove"><button>Remove</button></a>
+				<a href="/"><button>Logout</button></a>
+				<a href="/mainpage"><button>Reload</button></a>
+				<a href="/main"><button>Stream</button></a>
+				<a href="/request"><button>Button</button></a>
+				<p>Hello,{{Uname}}</p>
+			</div>
+		</div>
 		<div class="container_content">
-			<div class="menu">Menu</div>
+			<!-- <div class="menu">Menu</div> -->
 			<dir class="video">
 				<div class="ip_search flex">
 					<form class="search_bar" method="POST">
@@ -23,8 +33,8 @@
 					</form>
 				</div>
 				<div class="video_content flex">
-					<div class="video_stream">
-						<img id ="vd" src="{{imgURL}}">
+					<div class="video_stream flex">
+						<img src="{{imgURL}}" width=auto height=auto name="myCam">
 					</div>
 				</div> 
 			</dir>
@@ -32,4 +42,11 @@
 		<div class="footer">Footer</div>
 	</div>
 </body>
+<!-- <script language="JavaScript">
+	function refreshIt() {
+	   if (!document.images) return;
+	   document.images['myCam'].src = '{{imgURL}}?' + Math.random();
+	   setTimeout('refreshIt()',100); // refresh every 5 secs
+	}
+</script> -->
 </html>

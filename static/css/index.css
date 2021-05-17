@@ -5,6 +5,7 @@
 	font-family: 'Fjalla One', sans-serif;
 	box-sizing: border-box;
 }
+
 .flex{
 	justify-content: center;
 	align-items: center;
@@ -19,17 +20,13 @@
 .header{
 	width: 100%;
 	height: 10%;
-	background-color: yellow;
+	background-color:black;
 }
 
 .container_content{
 	display: flex;
 	width: 100%;
 	height: 80%;
-}
-.menu{
-	flex: 1 1 40%;
-	background-color: red;
 }
 .video{
 	flex: 1 1 60%;
@@ -96,4 +93,25 @@
 	background-color: rgb(100, 255, 0);
 	cursor: pointer;
 	color: grey;
+}
+.nav{
+
+}
+.nav a{
+	margin: 30px;
+}
+.nav button{
+	background-color: grey;
+	opacity: 0.8;
+	color: rgb(0, 255, 0);
+	padding: 10px;
+	border-radius: 10px;
+}
+.nav button:hover{
+	background-color: rgb(100, 255, 0);
+	cursor: pointer;
+	color: grey;
+}
+.nav p{
+	color: white;
 }

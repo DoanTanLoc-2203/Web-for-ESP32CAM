@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
+	<title>Demo</title>
+</head>
+ <body> <!--onLoad=" setTimeout('refreshIt()',100)"--> 
+	<div class="container_all">
+		<div class="header">
+			<div class="nav flex">
+				<a href="/upload"><button>New face</button></a>
+				<a href="/remove"><button>Remove</button></a>
+				<a href="/"><button>Logout</button></a>
+				<a href="/mainpage"><button>Reload</button></a>
+				<a href="/main"><button>Stream</button></a>
+				<p>Hello,{{Uname}}</p>
+			</div>
+		</div>
+		<div class="container_content">
+			<!-- <div class="menu">Menu</div> -->
+			<dir class="video">
+				<div class="ip_search flex">
+					<form class="search_bar" method="POST">
+						<input class= "input_ip" type="" name="url" placeholder="Enter video url..." value="">
+						<button class="but1"><i class="fad fa-search fa-2x"></i></button>
+					</form>
+				</div>
+				<div class="video_content flex">
+					<div class="video_stream flex">
+						<img src="{{ url_for('video_feed') }}" width=auto height=auto name="myCam">
+					</div>
+				</div> 
+			</dir>
+		</div>
+		<div class="footer">Footer</div>
+	</div>
+</body>
+<script language="JavaScript">
+	function refreshIt() {
+	   if (!document.images) return;
+	   document.images['myCam'].src = '{{imgURL}}?' + Math.random();
+	   setTimeout('refreshIt()',100); // refresh every 5 secs
+	}
+</script>
+</html>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/loginsite.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='py/loginsite.py') }}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Document</title>
 </head>
@@ -19,8 +18,8 @@
             <div class="main_mid">
                 <form method ="POST" action="/">
                     <input type="text" name="user" id="" placeholder="Username">
-                    <input type="text" name="pass" placeholder="Password">
-                    <Button name="send" value="send" onclick="checking()">Send</Button>
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" value="Login">
                 </form>
             </div>
             <div class="main_bot"></div>

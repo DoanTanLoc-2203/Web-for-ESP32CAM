@@ -1,4 +1,5 @@
 import pymysql
+import sys
 
 def CreateTable(tableName):
 	#database connection
@@ -41,7 +42,7 @@ def InsertItem(tableName, PRODUCER, CATEGORY, NAME, ORIGINAL_COST, SALE_COST, IM
 	connection.close()
 	
 def SelectAll(tableName):
-	connection = pymysql.connect(host="localhost", user="root", passwd="", database="onglocvlog")
+	connection = pymysql.connect(host="localhost", user="root", passwd="123456", database="smartdoorDB")
 	cursor = connection.cursor()
 	retrive = "Select * from "+tableName
 
@@ -83,3 +84,18 @@ def SelectCategoryColumm(tableName):
 	rows = cursor.fetchall()
 	connection.close()
 	return rows
+def checkLogin(username , password, tableName):
+	connection = pymysql.connect(host="localhost", user="root", passwd="123456", database="smartdoorDB")
+	cursor = connection.cursor()
+	retrive = "SELECT * FROM {tbname} WHERE USER_NAME = \"{uname}\" AND PASSWORD = \"{passw}\"".format(tbname = tableName, uname = username, passw = password)
+	#executing the quires
+	cursor.execute(retrive)
+	data = cursor.fetchall()
+	if(sys.getsizeof(data) == 40):
+		print("Login failed")
+		return False
+	else:
+		print("Login success")
+		return True
+	connection.close()
+	return False
